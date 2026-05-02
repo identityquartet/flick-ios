@@ -1,0 +1,293 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF00000000000000000A001 /* FlickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B002 /* FlickApp.swift */; };
+		FF00000000000000000A002 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B003 /* Models.swift */; };
+		FF00000000000000000A003 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B004 /* TMDBService.swift */; };
+		FF00000000000000000A004 /* StreamingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B005 /* StreamingService.swift */; };
+		FF00000000000000000A005 /* RadarrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B006 /* RadarrService.swift */; };
+		FF00000000000000000A006 /* SonarrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B007 /* SonarrService.swift */; };
+		FF00000000000000000A007 /* DiscoveryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B008 /* DiscoveryViewModel.swift */; };
+		FF00000000000000000A008 /* QueueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B009 /* QueueViewModel.swift */; };
+		FF00000000000000000A009 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00A /* ContentView.swift */; };
+		FF00000000000000000A00A /* DiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00B /* DiscoveryView.swift */; };
+		FF00000000000000000A00B /* MediaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00C /* MediaCardView.swift */; };
+		FF00000000000000000A00C /* MediaDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00D /* MediaDetailView.swift */; };
+		FF00000000000000000A00D /* QueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00E /* QueueView.swift */; };
+		FF00000000000000000A00E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B00F /* SettingsView.swift */; };
+		FF00000000000000000A00F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B010 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF00000000000000000B001 /* Flick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF00000000000000000B002 /* FlickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickApp.swift; sourceTree = "<group>"; };
+		FF00000000000000000B003 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		FF00000000000000000B004 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
+		FF00000000000000000B005 /* StreamingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamingService.swift; sourceTree = "<group>"; };
+		FF00000000000000000B006 /* RadarrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarrService.swift; sourceTree = "<group>"; };
+		FF00000000000000000B007 /* SonarrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SonarrService.swift; sourceTree = "<group>"; };
+		FF00000000000000000B008 /* DiscoveryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewModel.swift; sourceTree = "<group>"; };
+		FF00000000000000000B009 /* QueueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewModel.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00B /* DiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00C /* MediaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCardView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00D /* MediaDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaDetailView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00E /* QueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B00F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FF00000000000000000B010 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF00000000000000000B011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF00000000000000000C006 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF00000000000000000C001 = {
+			isa = PBXGroup;
+			children = (
+				FF00000000000000000C002 /* Flick */,
+				FF00000000000000000C003 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FF00000000000000000C002 /* Flick */ = {
+			isa = PBXGroup;
+			children = (
+				FF00000000000000000B002 /* FlickApp.swift */,
+				FF00000000000000000B003 /* Models.swift */,
+				FF00000000000000000B004 /* TMDBService.swift */,
+				FF00000000000000000B005 /* StreamingService.swift */,
+				FF00000000000000000B006 /* RadarrService.swift */,
+				FF00000000000000000B007 /* SonarrService.swift */,
+				FF00000000000000000B008 /* DiscoveryViewModel.swift */,
+				FF00000000000000000B009 /* QueueViewModel.swift */,
+				FF00000000000000000B00A /* ContentView.swift */,
+				FF00000000000000000B00B /* DiscoveryView.swift */,
+				FF00000000000000000B00C /* MediaCardView.swift */,
+				FF00000000000000000B00D /* MediaDetailView.swift */,
+				FF00000000000000000B00E /* QueueView.swift */,
+				FF00000000000000000B00F /* SettingsView.swift */,
+				FF00000000000000000B010 /* Assets.xcassets */,
+				FF00000000000000000B011 /* Info.plist */,
+			);
+			path = Flick;
+			sourceTree = "<group>";
+		};
+		FF00000000000000000C003 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF00000000000000000B001 /* Flick.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF00000000000000000C004 /* Flick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF00000000000000000C00D /* Build configuration list for PBXNativeTarget "Flick" */;
+			buildPhases = (
+				FF00000000000000000C005 /* Sources */,
+				FF00000000000000000C006 /* Frameworks */,
+				FF00000000000000000C007 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flick;
+			productName = Flick;
+			productReference = FF00000000000000000B001 /* Flick.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF00000000000000000C00E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					FF00000000000000000C004 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+				};
+			};
+			buildConfigurationList = FF00000000000000000C00C /* Build configuration list for PBXProject "Flick" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF00000000000000000C001;
+			productRefGroup = FF00000000000000000C003 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF00000000000000000C004 /* Flick */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF00000000000000000C007 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF00000000000000000A00F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF00000000000000000C005 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF00000000000000000A001 /* FlickApp.swift in Sources */,
+				FF00000000000000000A002 /* Models.swift in Sources */,
+				FF00000000000000000A003 /* TMDBService.swift in Sources */,
+				FF00000000000000000A004 /* StreamingService.swift in Sources */,
+				FF00000000000000000A005 /* RadarrService.swift in Sources */,
+				FF00000000000000000A006 /* SonarrService.swift in Sources */,
+				FF00000000000000000A007 /* DiscoveryViewModel.swift in Sources */,
+				FF00000000000000000A008 /* QueueViewModel.swift in Sources */,
+				FF00000000000000000A009 /* ContentView.swift in Sources */,
+				FF00000000000000000A00A /* DiscoveryView.swift in Sources */,
+				FF00000000000000000A00B /* MediaCardView.swift in Sources */,
+				FF00000000000000000A00C /* MediaDetailView.swift in Sources */,
+				FF00000000000000000A00D /* QueueView.swift in Sources */,
+				FF00000000000000000A00E /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF00000000000000000C008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF00000000000000000C009 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		FF00000000000000000C00A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GQ6BYE2DM;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Flick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacknest.flick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF00000000000000000C00B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6GQ6BYE2DM;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Flick/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.stacknest.flick;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF00000000000000000C00C /* Build configuration list for PBXProject "Flick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF00000000000000000C008 /* Debug */,
+				FF00000000000000000C009 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF00000000000000000C00D /* Build configuration list for PBXNativeTarget "Flick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF00000000000000000C00A /* Debug */,
+				FF00000000000000000C00B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FF00000000000000000C00E /* Project object */;
+}
