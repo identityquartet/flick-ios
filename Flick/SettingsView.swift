@@ -171,3 +171,11 @@ struct SettingsView: View {
         isFetching = false
     }
 }
+
+private struct ShareSheet: UIViewControllerRepresentable {
+    let items: [Any]
+    func makeUIViewController(context: Context) -> UIActivityViewController {
+        UIActivityViewController(activityItems: items, applicationActivities: nil)
+    }
+    func updateUIViewController(_ uvc: UIActivityViewController, context: Context) {}
+}
