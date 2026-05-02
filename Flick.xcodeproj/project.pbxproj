@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF00000000000000000A010 /* AppLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B012 /* AppLogger.swift */; };
 		FF00000000000000000A001 /* FlickApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B002 /* FlickApp.swift */; };
 		FF00000000000000000A002 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B003 /* Models.swift */; };
 		FF00000000000000000A003 /* TMDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF00000000000000000B004 /* TMDBService.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		FF00000000000000000B001 /* Flick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF00000000000000000B012 /* AppLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogger.swift; sourceTree = "<group>"; };
 		FF00000000000000000B002 /* FlickApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickApp.swift; sourceTree = "<group>"; };
 		FF00000000000000000B003 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		FF00000000000000000B004 /* TMDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBService.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 		FF00000000000000000C002 /* Flick */ = {
 			isa = PBXGroup;
 			children = (
+				FF00000000000000000B012 /* AppLogger.swift */,
 				FF00000000000000000B002 /* FlickApp.swift */,
 				FF00000000000000000B003 /* Models.swift */,
 				FF00000000000000000B004 /* TMDBService.swift */,
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF00000000000000000A010 /* AppLogger.swift in Sources */,
 				FF00000000000000000A001 /* FlickApp.swift in Sources */,
 				FF00000000000000000A002 /* Models.swift in Sources */,
 				FF00000000000000000A003 /* TMDBService.swift in Sources */,

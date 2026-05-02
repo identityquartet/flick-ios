@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 struct SettingsView: View {
     // Radarr
@@ -23,6 +24,9 @@ struct SettingsView: View {
     @State private var sonarrFolders: [RootFolder] = []
     @State private var fetchError: String?
     @State private var isFetching = false
+    @State private var logEntryCount = 0
+    @State private var showShareSheet = false
+    @State private var logText = ""
 
     var body: some View {
         NavigationStack {
@@ -107,10 +111,31 @@ struct SettingsView: View {
                         Text(err).foregroundStyle(.red).font(.caption)
                     }
                 }
+
+                // MARK: Logs
+                Section("Logs") {
+                    LabeledContent("Entries", value: "\(logEntryCount)")
+                    Button("Share Logs") {
+                        logText = AppLogger.shared.exportText()
+                        showShareSheet = true
+                    }
+                    .disabled(logEntryCount == 0)
+                    Button("Clear Logs", role: .destructive) {
+                        AppLogger.shared.clearLogs()
+                        logEntryCount = 0
+                    }
+                    .disabled(logEntryCount == 0)
+                }
             }
             .navigationTitle("Settings")
         }
-        .task { await fetchAll() }
+        .task {
+            await fetchAll()
+            logEntryCount = AppLogger.shared.entryCount
+        }
+        .sheet(isPresented: $showShareSheet) {
+            ShareSheet(items: [logText])
+        }
     }
 
     private func fetchAll() async {

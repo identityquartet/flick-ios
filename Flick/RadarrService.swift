@@ -21,6 +21,7 @@ struct RadarrService {
         let profileId = AppSettings.radarrProfileId
         let rootFolder = AppSettings.radarrRootFolder
         guard profileId > 0, !rootFolder.isEmpty else { throw APIError.notConfigured }
+        logInfo("Radarr", "Adding movie \"\(item.displayTitle)\" tmdbId=\(item.id)")
         let payload = RadarrAddPayload(
             title: item.displayTitle,
             tmdbId: item.id,
@@ -29,7 +30,9 @@ struct RadarrService {
             monitored: true,
             addOptions: .init(searchForMovie: true)
         )
-        return try await apiPost(try url("/api/v3/movie"), headers: headers, body: payload)
+        let result: RadarrMovie = try await apiPost(try url("/api/v3/movie"), headers: headers, body: payload)
+        logInfo("Radarr", "Movie added \"\(item.displayTitle)\" radarrId=\(result.id)")
+        return result
     }
 
     static func queue() async throws -> RadarrQueue {

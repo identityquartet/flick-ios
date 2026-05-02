@@ -28,6 +28,7 @@ struct SonarrService {
         let profileId = AppSettings.sonarrProfileId
         let rootFolder = AppSettings.sonarrRootFolder
         guard profileId > 0, !rootFolder.isEmpty else { throw APIError.notConfigured }
+        logInfo("Sonarr", "Adding series \"\(item.displayTitle)\" tvdbId=\(tvdbId) seasons=\(monitoredSeasons)")
 
         // Fetch series data from Sonarr lookup to get complete season list
         let results = try await lookup(tvdbId: tvdbId)
@@ -49,7 +50,9 @@ struct SonarrService {
             seasons: seasons,
             addOptions: .init(searchForMissingEpisodes: true, monitor: "none")
         )
-        return try await apiPost(try url("/api/v3/series"), headers: headers, body: payload)
+        let result: SonarrSeries = try await apiPost(try url("/api/v3/series"), headers: headers, body: payload)
+        logInfo("Sonarr", "Series added \"\(item.displayTitle)\" sonarrId=\(result.id)")
+        return result
     }
 
     static func queue() async throws -> SonarrQueue {
