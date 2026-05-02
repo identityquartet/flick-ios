@@ -21,13 +21,13 @@ func apiGet<T: Decodable>(_ url: URL, headers: [String: String], decoder: JSONDe
     let (data, response) = try await URLSession.shared.data(for: req)
     let code = (response as? HTTPURLResponse)?.statusCode ?? 0
     guard 200..<300 ~= code else {
-        logError("Network", "GET \(url.path) → \(code)")
+        logError("Network", "GET \(url.path(percentEncoded: false)) → \(code)")
         throw APIError.badResponse(code)
     }
-    logDebug("Network", "GET \(url.path) → \(code) (\(data.count)B)")
+    logDebug("Network", "GET \(url.path(percentEncoded: false)) → \(code) (\(data.count)B)")
     do { return try decoder.decode(T.self, from: data) }
     catch {
-        logError("Network", "Decode failed \(url.path): \(error)")
+        logError("Network", "Decode failed \(url.path(percentEncoded: false)): \(error)")
         throw APIError.decodingFailed
     }
 }
@@ -42,13 +42,13 @@ func apiPost<B: Encodable, T: Decodable>(_ url: URL, headers: [String: String], 
     let (data, response) = try await URLSession.shared.data(for: req)
     let code = (response as? HTTPURLResponse)?.statusCode ?? 0
     guard 200..<300 ~= code else {
-        logError("Network", "POST \(url.path) → \(code)")
+        logError("Network", "POST \(url.path(percentEncoded: false)) → \(code)")
         throw APIError.badResponse(code)
     }
-    logDebug("Network", "POST \(url.path) → \(code) (\(data.count)B)")
+    logDebug("Network", "POST \(url.path(percentEncoded: false)) → \(code) (\(data.count)B)")
     do { return try decoder.decode(T.self, from: data) }
     catch {
-        logError("Network", "Decode failed \(url.path): \(error)")
+        logError("Network", "Decode failed \(url.path(percentEncoded: false)): \(error)")
         throw APIError.decodingFailed
     }
 }
