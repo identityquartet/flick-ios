@@ -1,5 +1,6 @@
 import SwiftUI
 
+@MainActor
 @Observable
 class DiscoveryViewModel {
     var selectedTab: DiscoveryTab = .trending
