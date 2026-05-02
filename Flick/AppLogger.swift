@@ -7,7 +7,7 @@ final class AppLogger {
 
     private var entries: [String] = []
     private let maxEntries = 500
-    private let lock = NSLock()
+    private let queue = DispatchQueue(label: "com.stacknest.flick.logger", qos: .utility)
 
     private let dateFormatter: DateFormatter = {
         let f = DateFormatter()
@@ -23,49 +23,44 @@ final class AppLogger {
     private init() {}
 
     func log(_ level: String, _ category: String, _ message: String) {
+        // Timestamp on calling thread (DateFormatter is thread-safe for reads)
         let line = "[\(dateFormatter.string(from: Date()))] [\(level)] [\(category)] \(message)"
-        lock.lock()
-        entries.append(line)
-        if entries.count > maxEntries {
-            entries.removeFirst(entries.count - maxEntries)
+        // Dispatch async so we never block Swift's cooperative thread pool
+        queue.async { [weak self] in
+            guard let self else { return }
+            self.entries.append(line)
+            if self.entries.count > self.maxEntries {
+                self.entries.removeFirst(self.entries.count - self.maxEntries)
+            }
+            self.writeToFile(line + "\n")
         }
-        lock.unlock()
-        appendToFile(line + "\n")
     }
 
-    private func appendToFile(_ text: String) {
+    private func writeToFile(_ text: String) {
         guard let data = text.data(using: .utf8) else { return }
         let url = logFileURL
-        DispatchQueue.global(qos: .utility).async {
-            if FileManager.default.fileExists(atPath: url.path) {
-                guard let fh = try? FileHandle(forWritingTo: url) else { return }
-                fh.seekToEndOfFile()
-                fh.write(data)
-                try? fh.close()
-            } else {
-                try? data.write(to: url, options: .atomic)
-            }
+        if FileManager.default.fileExists(atPath: url.path) {
+            guard let fh = try? FileHandle(forWritingTo: url) else { return }
+            try? fh.seekToEnd()
+            try? fh.write(contentsOf: data)
+            try? fh.close()
+        } else {
+            try? data.write(to: url, options: .atomic)
         }
     }
 
     func exportText() -> String {
-        lock.lock()
-        defer { lock.unlock() }
-        return entries.joined(separator: "\n")
+        queue.sync { entries.joined(separator: "\n") }
     }
 
     var entryCount: Int {
-        lock.lock()
-        defer { lock.unlock() }
-        return entries.count
+        queue.sync { entries.count }
     }
 
     func clearLogs() {
-        lock.lock()
-        entries.removeAll()
-        lock.unlock()
         let url = logFileURL
-        DispatchQueue.global(qos: .utility).async {
+        queue.async { [weak self] in
+            self?.entries.removeAll()
             try? FileManager.default.removeItem(at: url)
         }
     }
