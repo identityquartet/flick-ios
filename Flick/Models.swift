@@ -15,25 +15,16 @@ enum APIError: LocalizedError {
 }
 
 func apiGet<T: Decodable>(_ url: URL, headers: [String: String], decoder: JSONDecoder = JSONDecoder()) async throws -> T {
-    logDebug("Network", "GET \(url.absoluteString)")
     var req = URLRequest(url: url)
     headers.forEach { req.setValue($1, forHTTPHeaderField: $0) }
     let (data, response) = try await URLSession.shared.data(for: req)
     let code = (response as? HTTPURLResponse)?.statusCode ?? 0
-    guard 200..<300 ~= code else {
-        logError("Network", "GET \(url.path(percentEncoded: false)) → \(code)")
-        throw APIError.badResponse(code)
-    }
-    logDebug("Network", "GET \(url.path(percentEncoded: false)) → \(code) (\(data.count)B)")
+    guard 200..<300 ~= code else { throw APIError.badResponse(code) }
     do { return try decoder.decode(T.self, from: data) }
-    catch {
-        logError("Network", "Decode failed \(url.path(percentEncoded: false)): \(error)")
-        throw APIError.decodingFailed
-    }
+    catch { throw APIError.decodingFailed }
 }
 
 func apiPost<B: Encodable, T: Decodable>(_ url: URL, headers: [String: String], body: B, decoder: JSONDecoder = JSONDecoder()) async throws -> T {
-    logDebug("Network", "POST \(url.absoluteString)")
     var req = URLRequest(url: url)
     req.httpMethod = "POST"
     req.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -41,16 +32,9 @@ func apiPost<B: Encodable, T: Decodable>(_ url: URL, headers: [String: String], 
     headers.forEach { req.setValue($1, forHTTPHeaderField: $0) }
     let (data, response) = try await URLSession.shared.data(for: req)
     let code = (response as? HTTPURLResponse)?.statusCode ?? 0
-    guard 200..<300 ~= code else {
-        logError("Network", "POST \(url.path(percentEncoded: false)) → \(code)")
-        throw APIError.badResponse(code)
-    }
-    logDebug("Network", "POST \(url.path(percentEncoded: false)) → \(code) (\(data.count)B)")
+    guard 200..<300 ~= code else { throw APIError.badResponse(code) }
     do { return try decoder.decode(T.self, from: data) }
-    catch {
-        logError("Network", "Decode failed \(url.path(percentEncoded: false)): \(error)")
-        throw APIError.decodingFailed
-    }
+    catch { throw APIError.decodingFailed }
 }
 
 // MARK: - TMDB Models
