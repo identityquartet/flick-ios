@@ -71,7 +71,7 @@ class DiscoveryViewModel {
     private func loadRadarrLibrary() async {
         guard AppSettings.isRadarrConfigured else { return }
         if let movies = try? await RadarrService.allMovies() {
-            radarrLibrary = Dictionary(uniqueKeysWithValues: movies.map { ($0.tmdbId, $0) })
+            radarrLibrary = Dictionary(movies.map { ($0.tmdbId, $0) }, uniquingKeysWith: { _, last in last })
         }
     }
 
@@ -79,7 +79,8 @@ class DiscoveryViewModel {
         guard AppSettings.isSonarrConfigured else { return }
         if let series = try? await SonarrService.allSeries() {
             sonarrLibrary = Dictionary(
-                uniqueKeysWithValues: series.compactMap { s in s.tmdbId.map { ($0, s) } }
+                series.compactMap { s in s.tmdbId.map { ($0, s) } },
+                uniquingKeysWith: { _, last in last }
             )
         }
     }
